@@ -1,24 +1,43 @@
-﻿/* Простые селекторы*/
-.video-container {
+﻿/* Комбинированный селектор - применяется ко всем элементам */
+header,footer,aside,body,.navbar,.video-container{
+    font-family: "Helvetica 65 Medium", sans-serif;
+}
+
+header,footer,body,.video-container{
+    background-color: linen;
+}
+
+/* Компоненты iframe со встроенным видео */
+.video-container{
     display: inline-block;
+    margin-top: 0.5em;
     padding-left: 1%;
     padding-top: 1%;
 }
-.navbar {
+
+/* Стили панели навигации */
+.navbar p{
     color: darkgray;
     padding-left: 15%;
 }
-/*Глобальные стили для хедеров на всём сайте*/
-header {
+
+/* Стили панели навигации при наведении мышью */
+.navbar p:hover{
+    color: aliceblue;
+}
+
+/* Глобальные стили для хедеров на всём сайте */
+header{
     color: black;
     padding-left: 1%;
     padding-top: 1.2%;
 }
-/*Стиль хедера для главной страницы имеет приоритет,
-так как используется селектор по идентификатору*/
-#header-index {
+/* Стиль хедера для главной страницы имеет приоритет, 
+так как используется селектор по идентификатору */
+#header-index{
     color: #44453f;
 }
+
 /* Стили футера */
 footer {
     position: absolute;
@@ -26,13 +45,14 @@ footer {
     font-size: medium;
     color: dimgrey;
     line-height: 66%;
-    padding-left: 1%;
+    padding-left: 1%; 
 }
-aside {
+
+aside{
     height: 100%; /* Высота в полный размер. Этот параметр можно убрать, если вы хотите выставлять высоту автоматически */
     width: 10%;
     position: absolute; /* Фиксированная позиция сайд-бара. Так он будет оставаться на месте при скроллинге */
-    z-index: 1; /* Сайд-бар будет поверх остальных элементов */
+    z-index: 1; 
     top: 0; /* Сайдбар будет в самой верхней части страницы */
     left: 0;
     background-color: #111; /* Черный цвет фона (задан в виде кода) */
@@ -40,26 +60,21 @@ aside {
     padding-top: 2%;
     font-size: large;
 }
-input {
-    border: 2px solid #008100;
-    box-sizing: border-box;
-    border-radius: 3px;
-    min-width: 160px;
-    height: 46px;
-}
-body {
+
+body{
     padding-left: 11%;
 }
-/* Пускай фон остается розовым */
-header, footer, body, .video-container {
-    background-color: pink;
+
+a{
+    text-decoration: none;
 }
-/* Стили панели навигации */
-.navbar p {
-    color: darkgray;
-    padding-left: 15%;
+
+input {
+    border: 2px solid darkgrey;
+    border-radius: 2px;
+    outline: none;
 }
-/* Стили панели навигации при наведении мышью */
-.navbar p:hover {
-    color: aliceblue;
+
+input:focus {
+    border: 2px solid dimgrey;
 }
