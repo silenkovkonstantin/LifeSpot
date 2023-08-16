@@ -1,9 +1,9 @@
-function filterContent() {
+ï»¿function filterContent() {
     let elements = document.getElementsByClassName('video-container');
 
     for (let i = 0; i <= elements.length; i++) {
         let videoText = elements[i].querySelector(".video-title").innerText;
-        if (!videoText.toLowerCase().includes(inputParseFunction() /* Çàõâàò ïåðåìåííîé òåïåðü ïðîèñõîäèò ñ ïîìîùüþ çàìûêàíèÿ */.toLowerCase())) {
+        if (!videoText.toLowerCase().includes(inputParseFunction() /* Ð—Ð°Ñ…Ð²Ð°Ñ‚ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ð¾Ð¹ Ñ‚ÐµÐ¿ÐµÑ€ÑŒ Ð¿Ñ€Ð¾Ð¸ÑÑ…Ð¾Ð´Ð¸Ñ‚ Ñ Ð¿Ð¾Ð¼Ð¾Ñ‰ÑŒÑŽ Ð·Ð°Ð¼Ñ‹ÐºÐ°Ð½Ð¸Ñ */.toLowerCase())) {
             elements[i].style.display = 'none';
         } else {
             elements[i].style.display = 'inline-block';
@@ -12,41 +12,41 @@ function filterContent() {
 }
 
 /*
-* Ñåññèÿ òåïåðü ñîçäàåòñÿ â îáùåé îáëàñòè âèäèìîñòè.
-* Áóäåò "çàõâàòûâàòüñÿ" òðåìÿ ôóíêöèÿìè
+* Ð¡ÐµÑÑÐ¸Ñ Ñ‚ÐµÐ¿ÐµÑ€ÑŒ ÑÐ¾Ð·Ð´Ð°ÐµÑ‚ÑÑ Ð² Ð¾Ð±Ñ‰ÐµÐ¹ Ð¾Ð±Ð»Ð°ÑÑ‚Ð¸ Ð²Ð¸Ð´Ð¸Ð¼Ð¾ÑÑ‚Ð¸.
+* Ð‘ÑƒÐ´ÐµÑ‚ "Ð·Ð°Ñ…Ð²Ð°Ñ‚Ñ‹Ð²Ð°Ñ‚ÑŒÑÑ" Ñ‚Ñ€ÐµÐ¼Ñ Ñ„ÑƒÐ½ÐºÑ†Ð¸ÑÐ¼Ð¸
 * 
 * */
 let session = new Map();
 
 /*
-* Ñîõðàíåíèå äàííûõ ñåññèè ñðàçó ïðè çàõîäå ïîëüçîâàòåëÿ íà ñòðàíèöó
+* Ð¡Ð¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸Ðµ Ð´Ð°Ð½Ð½Ñ‹Ñ… ÑÐµÑÑÐ¸Ð¸ ÑÑ€Ð°Ð·Ñƒ Ð¿Ñ€Ð¸ Ð·Ð°Ñ…Ð¾Ð´Ðµ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð½Ð° ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñƒ
 * 
 * */
 function handleSession() {
-    // Ñîõðàíèì âðåìÿ íà÷àëà ñåññèè
+    // Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ð¼ Ð²Ñ€ÐµÐ¼Ñ Ð½Ð°Ñ‡Ð°Ð»Ð° ÑÐµÑÑÐ¸Ð¸
     session.set("startDate", new Date().toLocaleString())
-    // Ñîõðàíèì UserAgent
+    // Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ð¼ UserAgent
     session.set("userAgent", window.navigator.userAgent)
 }
 
 /*
-* Ïðîâåðêà âîçðàñòà ïîëüçîâàòåëÿ
+* ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° Ð²Ð¾Ð·Ñ€Ð°ÑÑ‚Ð° Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ
 * 
 * */
 function checkAge() {
-    session.set("age", prompt("Ïîæàëóéñòà, ââåäèòå âàø âîçðàñò?"))
+    session.set("age", prompt("ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²Ð°Ñˆ Ð²Ð¾Ð·Ñ€Ð°ÑÑ‚?"))
 
     if (session.get("age") >= 18) {
-        alert("Ïðèâåòñòâóåì íà LifeSpot! " + '\n' + "Òåêóùåå âðåìÿ: " + new Date().toLocaleString());
+        alert("ÐŸÑ€Ð¸Ð²ÐµÑ‚ÑÑ‚Ð²ÑƒÐµÐ¼ Ð½Ð° LifeSpot! " + '\n' + "Ð¢ÐµÐºÑƒÑ‰ÐµÐµ Ð²Ñ€ÐµÐ¼Ñ: " + new Date().toLocaleString());
     }
     else {
-        alert("Íàøè òðàíñëÿöèè íå ïðåäíàçíà÷åíû äëÿ ëèö ìîëîæå 18 ëåò. Âû áóäåòå ïåðåíàïðàâëåíû");
+        alert("ÐÐ°ÑˆÐ¸ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ð¸ Ð½Ðµ Ð¿Ñ€ÐµÐ´Ð½Ð°Ð·Ð½Ð°Ñ‡ÐµÐ½Ñ‹ Ð´Ð»Ñ Ð»Ð¸Ñ† Ð¼Ð¾Ð»Ð¾Ð¶Ðµ 18 Ð»ÐµÑ‚. Ð’Ñ‹ Ð±ÑƒÐ´ÐµÑ‚Ðµ Ð¿ÐµÑ€ÐµÐ½Ð°Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ñ‹");
         window.location.href = "http://www.google.com"
     }
 }
 
 /*
-* Âûâîä äàííûõ ñåññèè â êîíñîëü
+* Ð’Ñ‹Ð²Ð¾Ð´ Ð´Ð°Ð½Ð½Ñ‹Ñ… ÑÐµÑÑÐ¸Ð¸ Ð² ÐºÐ¾Ð½ÑÐ¾Ð»ÑŒ
 * 
 * */
 let sessionLog = function logSession() {
@@ -56,43 +56,43 @@ let sessionLog = function logSession() {
 }
 
 /*
-* Âñïëûâàþùåå îêíî áóäåò ïîêàçàíî ïî òàéìàóòó
+* Ð’ÑÐ¿Ð»Ñ‹Ð²Ð°ÑŽÑ‰ÐµÐµ Ð¾ÐºÐ½Ð¾ Ð±ÑƒÐ´ÐµÑ‚ Ð¿Ð¾ÐºÐ°Ð·Ð°Ð½Ð¾ Ð¿Ð¾ Ñ‚Ð°Ð¹Ð¼Ð°ÑƒÑ‚Ñƒ
 * 
 * */
 setTimeout(() =>
-    alert("Íðàâèòñÿ LifeSpot? " + '\n' + "Ïîäïèøèòåñü íà íàø Instagram @lifespot999!"),
-    30000);
+    alert("ÐÑ€Ð°Ð²Ð¸Ñ‚ÑÑ LifeSpot? " + '\n' + "ÐŸÐ¾Ð´Ð¿Ð¸ÑˆÐ¸Ñ‚ÐµÑÑŒ Ð½Ð° Ð½Ð°Ñˆ Instagram @lifespot999!"),
+    1000);
 
 /*
-* Çàïðîñèì ïîëüçîâàòåëüñêèé ââîä
-* è ñîõðàíèì îòçûâ â îáúåêò
+* Ð—Ð°Ð¿Ñ€Ð¾ÑÐ¸Ð¼ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¸Ð¹ Ð²Ð²Ð¾Ð´
+* Ð¸ ÑÐ¾Ñ…Ñ€Ð°Ð½Ð¸Ð¼ Ð¾Ñ‚Ð·Ñ‹Ð² Ð² Ð¾Ð±ÑŠÐµÐºÑ‚
 *
 * */
 function getReview() {
-    // Ñîçäàäèì îáúåêò
+    // Ð¡Ð¾Ð·Ð´Ð°Ð´Ð¸Ð¼ Ð¾Ð±ÑŠÐµÐºÑ‚
     let review = {}
 
-    // Ñîõðàíèì ñâîéñòâî èìåíè
-    review["userName"] = prompt("Êàê âàñ çîâóò ?")
+    // Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ð¼ ÑÐ²Ð¾Ð¹ÑÑ‚Ð²Ð¾ Ð¸Ð¼ÐµÐ½Ð¸
+    review["userName"] = prompt("ÐšÐ°Ðº Ð²Ð°Ñ Ð·Ð¾Ð²ÑƒÑ‚ ?")
     if (review["userName"] == null) {
         return
     }
 
-    // Ñîõðàíèì òåêñò îòçûâà
-    review["comment"] = prompt("Íàïèøèòå ñâîé îòçûâ")
+    // Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ð¼ Ñ‚ÐµÐºÑÑ‚ Ð¾Ñ‚Ð·Ñ‹Ð²Ð°
+    review["comment"] = prompt("ÐÐ°Ð¿Ð¸ÑˆÐ¸Ñ‚Ðµ ÑÐ²Ð¾Ð¹ Ð¾Ñ‚Ð·Ñ‹Ð²")
     if (review["comment"] == null) {
         return
     }
 
-    // Ñîõðàíèì òåêóùåå âðåìÿ
+    // Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ð¼ Ñ‚ÐµÐºÑƒÑ‰ÐµÐµ Ð²Ñ€ÐµÐ¼Ñ
     review["date"] = new Date().toLocaleString()
 
-    // Äîáàâèì íà ñòðàíèöó
+    // Ð”Ð¾Ð±Ð°Ð²Ð¸Ð¼ Ð½Ð° ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñƒ
     writeReview(review)
 }
 
 /*
-* Çàïèøåì îòçûâ íà ñòðàíèöó
+* Ð—Ð°Ð¿Ð¸ÑˆÐµÐ¼ Ð¾Ñ‚Ð·Ñ‹Ð² Ð½Ð° ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñƒ
 *
 * */
 const writeReview = review => {
