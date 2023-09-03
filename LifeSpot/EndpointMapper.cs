@@ -13,7 +13,7 @@ namespace LifeSpot
         /// </summary>
         public static void MapCss(this IEndpointRouteBuilder builder)
         {
-            var cssFiles = new[] { "index.css" };
+            var cssFiles = new[] { "index.css", "slider.css" };
 
             foreach (var fileName in cssFiles)
             {
@@ -40,6 +40,24 @@ namespace LifeSpot
                     var jsPath = Path.Combine(Directory.GetCurrentDirectory(), "Static", "JS", fileName);
                     var js = await File.ReadAllTextAsync(jsPath);
                     await context.Response.WriteAsync(js);
+                });
+            }
+        }
+
+        /// <summary>
+        ///  Маппинг JPG
+        /// </summary>
+        public static void MapJpg(this IEndpointRouteBuilder builder)
+        {
+            var jpgFiles = new[] { "london.jpg", "ny.jpg", "spb.jpg" };
+
+            foreach (var fileName in jpgFiles)
+            {
+                builder.MapGet($"/Static/JPG/{fileName}", async context =>
+                {
+                    var jpgPath = Path.Combine(Directory.GetCurrentDirectory(), "Static", "JPG", fileName);
+                    var jpg = await File.ReadAllTextAsync(jpgPath);
+                    await context.Response.WriteAsync(jpg);
                 });
             }
         }
