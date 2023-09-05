@@ -6,6 +6,15 @@
     <title>LifeSpot</title>
     <link href="../Static/CSS/index.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="../Static/JS/about.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // инициализация слайдера
+            var slider = new SimpleAdaptiveSlider('.slider', {
+                autoplay: true,
+                interval: 10000,
+            });
+        });
+    </script>
 </head>
 
 <!--SIDEBAR-->
@@ -14,7 +23,6 @@
         <h1>LifeSpot - о проекте</h1>
         <p>На сайте собраны прямые трансляции из улиц разных городов мира.</p>
         <p>Все трансляции находятся в открытых источниках, в данный момент - youtube.com</p>
-        <img src="../Static/JPG/london.jpg">
         <!--SLIDER-->
         <p>Отзыв о работе сайта можно оставить здесь</p>
     </header>

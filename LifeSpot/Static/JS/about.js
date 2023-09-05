@@ -103,6 +103,22 @@ function currentSlide(n) {
     showSlides(slideIndex = n);
 }
 
+function moveSlide() {
+    var t = "next" === this._direction ? -100 : 100
+        , i = this._transform + t;
+    "next" === this._direction ? ++this._currentIndex > this._$itemList.length - 1 && (this._currentIndex -= this._$itemList.length) : --this._currentIndex < 0 && (this._currentIndex += this._$itemList.length),
+        this._transform = i,
+        this._$items.style.transform = "translateX(".concat(i, "%)"),
+        this._setActiveClass()
+}
+
+function moveToSlide(t) {
+    var i = slideIndex;
+    this._direction = t > i ? "next" : "prev";
+    for (var e = 0; e < Math.abs(t - i); e++)
+        moveSlide()
+}
+
 function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
